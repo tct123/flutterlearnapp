@@ -13,7 +13,12 @@ void main() {
                 "Hello world",
                 style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
               ),
-              TextButton(onPressed: () => print(""), child: const Text("data")),
+              TextButton(
+                onPressed: () {
+                  AlertDialog(content: Text("Hello World"));
+                },
+                child: const Text("Hello World"),
+              ),
             ],
           ),
         ),
