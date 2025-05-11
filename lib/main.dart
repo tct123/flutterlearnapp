@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myweaterapp/pages/weatherpage.dart';
 
-var textfield = TextField();
-var text = Text("");
 void main() {
   runApp(const MyApp());
 }
