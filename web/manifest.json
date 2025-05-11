@@ -1,6 +1,6 @@
 {
-    "name": "flutterlearnapp",
-    "short_name": "flutterlearnapp",
+    "name": "myweaterapp",
+    "short_name": "myweaterapp",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

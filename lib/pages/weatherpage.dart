@@ -12,13 +12,13 @@ class WeatherPage extends StatefulWidget {
 
 class _WeatherPageState extends State<WeatherPage> {
   //apikey
-  final _weatherService = WeatherService(apikey);
+  final _weatherService = WeatherService("035813f6422fcc8211320a8782dba03d");
   Weather? _weather;
   //fetch Weather
   _fetchWeather() async {
-    String city_name = await _weatherService.getCurrentCity();
+    String cityName = await _weatherService.getCurrentCity();
     try{
-      final weather=await _weatherService.getWeather(city_name)
+      final weather=await _weatherService.getWeather(cityName)
       setState(() {
         _weather=weather;
       });
@@ -28,9 +28,23 @@ class _WeatherPageState extends State<WeatherPage> {
       print(e);
     }}
   }
+  @override
+  void initState(){
+    super.initState();
+    _fetchWeather(); // fetch Weather
+
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(body: Center(
+      child: Column(mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        // cityname
+        Text(_weather!.cityName),
+        // temperature
+        Text('${_weather!.temprature.round()}°')
+      ],),
+    ),);
   }
 }
