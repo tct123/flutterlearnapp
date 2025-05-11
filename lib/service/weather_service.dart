@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:myweaterapp/models/weather_model.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:http/http.dart' as http;
 
 class WeatherService {
@@ -19,7 +20,7 @@ class WeatherService {
     }
   }
 
-  Future<String> getCurrentCity() async {
+  Future<String?> getCurrentCity() async {
     // permission asking
     LocationPermission permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
