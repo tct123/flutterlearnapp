@@ -44,10 +44,15 @@ class _WeatherPageState extends State<WeatherPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // cityname
-            Text(_weather!.cityName),
-            // temperature
-            Text('${_weather!.temprature.round()}°'),
+            if (_weather != null) ...[
+              // cityname
+              Text(_weather!.cityName),
+              // temperature
+              Text('${_weather!.temprature.round()}°'),
+            ] else ...[
+              CircularProgressIndicator(),
+              Text("Loading"),
+            ],
           ],
         ),
       ),
