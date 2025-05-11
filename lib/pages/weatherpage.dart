@@ -17,34 +17,40 @@ class _WeatherPageState extends State<WeatherPage> {
   //fetch Weather
   _fetchWeather() async {
     String cityName = await _weatherService.getCurrentCity();
-    try{
-      final weather=await _weatherService.getWeather(cityName)
+    try {
+      final weather = await _weatherService.getWeather(cityName);
       setState(() {
-        _weather=weather;
+        _weather = weather;
       });
     }
     // errors
-    catch (e){if (kDebugMode) {
-      print(e);
-    }}
+    catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    }
   }
+
   @override
-  void initState(){
+  void initState() {
     super.initState();
     _fetchWeather(); // fetch Weather
-
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(
-      child: Column(mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        // cityname
-        Text(_weather!.cityName),
-        // temperature
-        Text('${_weather!.temprature.round()}°')
-      ],),
-    ),);
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // cityname
+            Text(_weather!.cityName),
+            // temperature
+            Text('${_weather!.temprature.round()}°'),
+          ],
+        ),
+      ),
+    );
   }
 }
