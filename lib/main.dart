@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+var textfield = TextField();
+var text = Text("");
 void main() {
   runApp(
     MaterialApp(
@@ -13,12 +15,9 @@ void main() {
                 "Hello world",
                 style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
               ),
-              TextButton(
-                onPressed: () {
-                  AlertDialog(content: Text("Hello World"));
-                },
-                child: const Text("Hello World"),
-              ),
+              text,
+              textfield,
+              TextButton(onPressed: () {}, child: const Text("Hello World")),
             ],
           ),
         ),
@@ -26,3 +25,7 @@ void main() {
     ),
   );
 }
+
+class MyApp {
+  const MyApp();
+} // class for testing
